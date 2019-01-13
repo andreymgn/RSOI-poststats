@@ -7,8 +7,6 @@ import (
 
 	pb "github.com/andreymgn/RSOI-poststats/pkg/poststats/proto"
 	"github.com/andreymgn/RSOI/services/auth"
-	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
-	opentracing "github.com/opentracing/opentracing-go"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -36,10 +34,8 @@ func NewServer(connString, addr, password string, dbNum int, knownApps map[strin
 }
 
 // Start starts a server
-func (s *Server) Start(port int, tracer opentracing.Tracer) error {
-	server := grpc.NewServer(
-		grpc.UnaryInterceptor(otgrpc.OpenTracingServerInterceptor(tracer)),
-	)
+func (s *Server) Start(port int) error {
+	server := grpc.NewServer()
 	pb.RegisterPostStatsServer(server, s)
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {

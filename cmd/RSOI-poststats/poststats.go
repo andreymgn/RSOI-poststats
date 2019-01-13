@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/andreymgn/RSOI-poststats/pkg/poststats"
-	"github.com/andreymgn/RSOI/pkg/tracer"
 )
 
 const (
@@ -12,12 +11,7 @@ const (
 	PoststatsAppSecret = "3BusyNfGQpyCr77J"
 )
 
-func runPostStats(port int, connString, jaegerAddr, redisAddr, redisPassword string, redisDB int) error {
-	tracer, err := tracer.NewTracer("poststats", jaegerAddr)
-	if err != nil {
-		log.Fatal(err)
-	}
-
+func runPostStats(port int, connString, redisAddr, redisPassword string, redisDB int) error {
 	knownKeys := map[string]string{PoststatsAppID: PoststatsAppSecret}
 
 	server, err := poststats.NewServer(connString, redisAddr, redisPassword, redisDB, knownKeys)
@@ -25,5 +19,5 @@ func runPostStats(port int, connString, jaegerAddr, redisAddr, redisPassword str
 		log.Fatal(err)
 	}
 
-	return server.Start(port, tracer)
+	return server.Start(port)
 }

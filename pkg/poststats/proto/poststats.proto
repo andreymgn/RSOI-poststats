@@ -9,7 +9,6 @@ service PostStats {
     rpc DislikePost(DislikePostRequest) returns (DislikePostResponse);
     rpc IncreaseViews(IncreaseViewsRequest) returns (IncreaseViewsResponse);
     rpc DeletePostStats(DeletePostStatsRequest) returns (DeletePostStatsResponse);
-    rpc GetToken(GetTokenRequest) returns (GetTokenResponse);
 }
 
 message GetPostStatsRequest {
@@ -24,13 +23,11 @@ message SinglePostStats {
 }
 
 message CreatePostStatsRequest {
-    string token = 1;
-    string postUid = 2;
+    string postUid = 1;
 }
 
 message LikePostRequest {
-    string token = 1;
-    string postUid = 2;
+    string postUid = 1;
 }
 
 message LikePostResponse {
@@ -38,8 +35,7 @@ message LikePostResponse {
 }
 
 message DislikePostRequest {
-    string token = 1;
-    string postUid = 2;
+    string postUid = 1;
 }
 
 message DislikePostResponse {
@@ -47,8 +43,7 @@ message DislikePostResponse {
 }
 
 message IncreaseViewsRequest {
-    string token = 1;
-    string postUid = 2;
+    string postUid = 1;
 }
 
 message IncreaseViewsResponse {
@@ -56,19 +51,9 @@ message IncreaseViewsResponse {
 }
 
 message DeletePostStatsRequest {
-    string token = 1;
-    string postUid = 2;
+    string postUid = 1;
 }
 
 message DeletePostStatsResponse {
 
-}
-
-message GetTokenRequest {
-    string appId = 1;
-    string appSecret = 2;
-}
-
-message GetTokenResponse {
-    string token = 1;
 }

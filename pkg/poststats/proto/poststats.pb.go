@@ -3,11 +3,9 @@
 
 package poststats
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 import (
 	context "golang.org/x/net/context"
@@ -36,17 +34,16 @@ func (m *GetPostStatsRequest) Reset()         { *m = GetPostStatsRequest{} }
 func (m *GetPostStatsRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPostStatsRequest) ProtoMessage()    {}
 func (*GetPostStatsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{0}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{0}
 }
-
 func (m *GetPostStatsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetPostStatsRequest.Unmarshal(m, b)
 }
 func (m *GetPostStatsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GetPostStatsRequest.Marshal(b, m, deterministic)
 }
-func (m *GetPostStatsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetPostStatsRequest.Merge(m, src)
+func (dst *GetPostStatsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPostStatsRequest.Merge(dst, src)
 }
 func (m *GetPostStatsRequest) XXX_Size() int {
 	return xxx_messageInfo_GetPostStatsRequest.Size(m)
@@ -78,17 +75,16 @@ func (m *SinglePostStats) Reset()         { *m = SinglePostStats{} }
 func (m *SinglePostStats) String() string { return proto.CompactTextString(m) }
 func (*SinglePostStats) ProtoMessage()    {}
 func (*SinglePostStats) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{1}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{1}
 }
-
 func (m *SinglePostStats) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SinglePostStats.Unmarshal(m, b)
 }
 func (m *SinglePostStats) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_SinglePostStats.Marshal(b, m, deterministic)
 }
-func (m *SinglePostStats) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SinglePostStats.Merge(m, src)
+func (dst *SinglePostStats) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SinglePostStats.Merge(dst, src)
 }
 func (m *SinglePostStats) XXX_Size() int {
 	return xxx_messageInfo_SinglePostStats.Size(m)
@@ -128,8 +124,7 @@ func (m *SinglePostStats) GetNumViews() int32 {
 }
 
 type CreatePostStatsRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -139,17 +134,16 @@ func (m *CreatePostStatsRequest) Reset()         { *m = CreatePostStatsRequest{}
 func (m *CreatePostStatsRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePostStatsRequest) ProtoMessage()    {}
 func (*CreatePostStatsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{2}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{2}
 }
-
 func (m *CreatePostStatsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreatePostStatsRequest.Unmarshal(m, b)
 }
 func (m *CreatePostStatsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CreatePostStatsRequest.Marshal(b, m, deterministic)
 }
-func (m *CreatePostStatsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreatePostStatsRequest.Merge(m, src)
+func (dst *CreatePostStatsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreatePostStatsRequest.Merge(dst, src)
 }
 func (m *CreatePostStatsRequest) XXX_Size() int {
 	return xxx_messageInfo_CreatePostStatsRequest.Size(m)
@@ -160,13 +154,6 @@ func (m *CreatePostStatsRequest) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_CreatePostStatsRequest proto.InternalMessageInfo
 
-func (m *CreatePostStatsRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
-
 func (m *CreatePostStatsRequest) GetPostUid() string {
 	if m != nil {
 		return m.PostUid
@@ -175,8 +162,7 @@ func (m *CreatePostStatsRequest) GetPostUid() string {
 }
 
 type LikePostRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -186,17 +172,16 @@ func (m *LikePostRequest) Reset()         { *m = LikePostRequest{} }
 func (m *LikePostRequest) String() string { return proto.CompactTextString(m) }
 func (*LikePostRequest) ProtoMessage()    {}
 func (*LikePostRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{3}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{3}
 }
-
 func (m *LikePostRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_LikePostRequest.Unmarshal(m, b)
 }
 func (m *LikePostRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_LikePostRequest.Marshal(b, m, deterministic)
 }
-func (m *LikePostRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LikePostRequest.Merge(m, src)
+func (dst *LikePostRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LikePostRequest.Merge(dst, src)
 }
 func (m *LikePostRequest) XXX_Size() int {
 	return xxx_messageInfo_LikePostRequest.Size(m)
@@ -206,13 +191,6 @@ func (m *LikePostRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_LikePostRequest proto.InternalMessageInfo
-
-func (m *LikePostRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *LikePostRequest) GetPostUid() string {
 	if m != nil {
@@ -231,17 +209,16 @@ func (m *LikePostResponse) Reset()         { *m = LikePostResponse{} }
 func (m *LikePostResponse) String() string { return proto.CompactTextString(m) }
 func (*LikePostResponse) ProtoMessage()    {}
 func (*LikePostResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{4}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{4}
 }
-
 func (m *LikePostResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_LikePostResponse.Unmarshal(m, b)
 }
 func (m *LikePostResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_LikePostResponse.Marshal(b, m, deterministic)
 }
-func (m *LikePostResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_LikePostResponse.Merge(m, src)
+func (dst *LikePostResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LikePostResponse.Merge(dst, src)
 }
 func (m *LikePostResponse) XXX_Size() int {
 	return xxx_messageInfo_LikePostResponse.Size(m)
@@ -253,8 +230,7 @@ func (m *LikePostResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_LikePostResponse proto.InternalMessageInfo
 
 type DislikePostRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -264,17 +240,16 @@ func (m *DislikePostRequest) Reset()         { *m = DislikePostRequest{} }
 func (m *DislikePostRequest) String() string { return proto.CompactTextString(m) }
 func (*DislikePostRequest) ProtoMessage()    {}
 func (*DislikePostRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{5}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{5}
 }
-
 func (m *DislikePostRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DislikePostRequest.Unmarshal(m, b)
 }
 func (m *DislikePostRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DislikePostRequest.Marshal(b, m, deterministic)
 }
-func (m *DislikePostRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DislikePostRequest.Merge(m, src)
+func (dst *DislikePostRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DislikePostRequest.Merge(dst, src)
 }
 func (m *DislikePostRequest) XXX_Size() int {
 	return xxx_messageInfo_DislikePostRequest.Size(m)
@@ -284,13 +259,6 @@ func (m *DislikePostRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DislikePostRequest proto.InternalMessageInfo
-
-func (m *DislikePostRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *DislikePostRequest) GetPostUid() string {
 	if m != nil {
@@ -309,17 +277,16 @@ func (m *DislikePostResponse) Reset()         { *m = DislikePostResponse{} }
 func (m *DislikePostResponse) String() string { return proto.CompactTextString(m) }
 func (*DislikePostResponse) ProtoMessage()    {}
 func (*DislikePostResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{6}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{6}
 }
-
 func (m *DislikePostResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DislikePostResponse.Unmarshal(m, b)
 }
 func (m *DislikePostResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DislikePostResponse.Marshal(b, m, deterministic)
 }
-func (m *DislikePostResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DislikePostResponse.Merge(m, src)
+func (dst *DislikePostResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DislikePostResponse.Merge(dst, src)
 }
 func (m *DislikePostResponse) XXX_Size() int {
 	return xxx_messageInfo_DislikePostResponse.Size(m)
@@ -331,8 +298,7 @@ func (m *DislikePostResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_DislikePostResponse proto.InternalMessageInfo
 
 type IncreaseViewsRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -342,17 +308,16 @@ func (m *IncreaseViewsRequest) Reset()         { *m = IncreaseViewsRequest{} }
 func (m *IncreaseViewsRequest) String() string { return proto.CompactTextString(m) }
 func (*IncreaseViewsRequest) ProtoMessage()    {}
 func (*IncreaseViewsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{7}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{7}
 }
-
 func (m *IncreaseViewsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_IncreaseViewsRequest.Unmarshal(m, b)
 }
 func (m *IncreaseViewsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_IncreaseViewsRequest.Marshal(b, m, deterministic)
 }
-func (m *IncreaseViewsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_IncreaseViewsRequest.Merge(m, src)
+func (dst *IncreaseViewsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IncreaseViewsRequest.Merge(dst, src)
 }
 func (m *IncreaseViewsRequest) XXX_Size() int {
 	return xxx_messageInfo_IncreaseViewsRequest.Size(m)
@@ -362,13 +327,6 @@ func (m *IncreaseViewsRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_IncreaseViewsRequest proto.InternalMessageInfo
-
-func (m *IncreaseViewsRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *IncreaseViewsRequest) GetPostUid() string {
 	if m != nil {
@@ -387,17 +345,16 @@ func (m *IncreaseViewsResponse) Reset()         { *m = IncreaseViewsResponse{} }
 func (m *IncreaseViewsResponse) String() string { return proto.CompactTextString(m) }
 func (*IncreaseViewsResponse) ProtoMessage()    {}
 func (*IncreaseViewsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{8}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{8}
 }
-
 func (m *IncreaseViewsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_IncreaseViewsResponse.Unmarshal(m, b)
 }
 func (m *IncreaseViewsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_IncreaseViewsResponse.Marshal(b, m, deterministic)
 }
-func (m *IncreaseViewsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_IncreaseViewsResponse.Merge(m, src)
+func (dst *IncreaseViewsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_IncreaseViewsResponse.Merge(dst, src)
 }
 func (m *IncreaseViewsResponse) XXX_Size() int {
 	return xxx_messageInfo_IncreaseViewsResponse.Size(m)
@@ -409,8 +366,7 @@ func (m *IncreaseViewsResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_IncreaseViewsResponse proto.InternalMessageInfo
 
 type DeletePostStatsRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -420,17 +376,16 @@ func (m *DeletePostStatsRequest) Reset()         { *m = DeletePostStatsRequest{}
 func (m *DeletePostStatsRequest) String() string { return proto.CompactTextString(m) }
 func (*DeletePostStatsRequest) ProtoMessage()    {}
 func (*DeletePostStatsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{9}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{9}
 }
-
 func (m *DeletePostStatsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeletePostStatsRequest.Unmarshal(m, b)
 }
 func (m *DeletePostStatsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeletePostStatsRequest.Marshal(b, m, deterministic)
 }
-func (m *DeletePostStatsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeletePostStatsRequest.Merge(m, src)
+func (dst *DeletePostStatsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeletePostStatsRequest.Merge(dst, src)
 }
 func (m *DeletePostStatsRequest) XXX_Size() int {
 	return xxx_messageInfo_DeletePostStatsRequest.Size(m)
@@ -440,13 +395,6 @@ func (m *DeletePostStatsRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DeletePostStatsRequest proto.InternalMessageInfo
-
-func (m *DeletePostStatsRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *DeletePostStatsRequest) GetPostUid() string {
 	if m != nil {
@@ -465,17 +413,16 @@ func (m *DeletePostStatsResponse) Reset()         { *m = DeletePostStatsResponse
 func (m *DeletePostStatsResponse) String() string { return proto.CompactTextString(m) }
 func (*DeletePostStatsResponse) ProtoMessage()    {}
 func (*DeletePostStatsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{10}
+	return fileDescriptor_poststats_3c17b13bb92d7e46, []int{10}
 }
-
 func (m *DeletePostStatsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeletePostStatsResponse.Unmarshal(m, b)
 }
 func (m *DeletePostStatsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeletePostStatsResponse.Marshal(b, m, deterministic)
 }
-func (m *DeletePostStatsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeletePostStatsResponse.Merge(m, src)
+func (dst *DeletePostStatsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeletePostStatsResponse.Merge(dst, src)
 }
 func (m *DeletePostStatsResponse) XXX_Size() int {
 	return xxx_messageInfo_DeletePostStatsResponse.Size(m)
@@ -485,92 +432,6 @@ func (m *DeletePostStatsResponse) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DeletePostStatsResponse proto.InternalMessageInfo
-
-type GetTokenRequest struct {
-	AppId                string   `protobuf:"bytes,1,opt,name=appId,proto3" json:"appId,omitempty"`
-	AppSecret            string   `protobuf:"bytes,2,opt,name=appSecret,proto3" json:"appSecret,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTokenRequest) Reset()         { *m = GetTokenRequest{} }
-func (m *GetTokenRequest) String() string { return proto.CompactTextString(m) }
-func (*GetTokenRequest) ProtoMessage()    {}
-func (*GetTokenRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{11}
-}
-
-func (m *GetTokenRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTokenRequest.Unmarshal(m, b)
-}
-func (m *GetTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTokenRequest.Marshal(b, m, deterministic)
-}
-func (m *GetTokenRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTokenRequest.Merge(m, src)
-}
-func (m *GetTokenRequest) XXX_Size() int {
-	return xxx_messageInfo_GetTokenRequest.Size(m)
-}
-func (m *GetTokenRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTokenRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTokenRequest proto.InternalMessageInfo
-
-func (m *GetTokenRequest) GetAppId() string {
-	if m != nil {
-		return m.AppId
-	}
-	return ""
-}
-
-func (m *GetTokenRequest) GetAppSecret() string {
-	if m != nil {
-		return m.AppSecret
-	}
-	return ""
-}
-
-type GetTokenResponse struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTokenResponse) Reset()         { *m = GetTokenResponse{} }
-func (m *GetTokenResponse) String() string { return proto.CompactTextString(m) }
-func (*GetTokenResponse) ProtoMessage()    {}
-func (*GetTokenResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a47b6d2deeb112c4, []int{12}
-}
-
-func (m *GetTokenResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTokenResponse.Unmarshal(m, b)
-}
-func (m *GetTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTokenResponse.Marshal(b, m, deterministic)
-}
-func (m *GetTokenResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTokenResponse.Merge(m, src)
-}
-func (m *GetTokenResponse) XXX_Size() int {
-	return xxx_messageInfo_GetTokenResponse.Size(m)
-}
-func (m *GetTokenResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTokenResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTokenResponse proto.InternalMessageInfo
-
-func (m *GetTokenResponse) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func init() {
 	proto.RegisterType((*GetPostStatsRequest)(nil), "poststats.GetPostStatsRequest")
@@ -584,8 +445,6 @@ func init() {
 	proto.RegisterType((*IncreaseViewsResponse)(nil), "poststats.IncreaseViewsResponse")
 	proto.RegisterType((*DeletePostStatsRequest)(nil), "poststats.DeletePostStatsRequest")
 	proto.RegisterType((*DeletePostStatsResponse)(nil), "poststats.DeletePostStatsResponse")
-	proto.RegisterType((*GetTokenRequest)(nil), "poststats.GetTokenRequest")
-	proto.RegisterType((*GetTokenResponse)(nil), "poststats.GetTokenResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -606,7 +465,6 @@ type PostStatsClient interface {
 	DislikePost(ctx context.Context, in *DislikePostRequest, opts ...grpc.CallOption) (*DislikePostResponse, error)
 	IncreaseViews(ctx context.Context, in *IncreaseViewsRequest, opts ...grpc.CallOption) (*IncreaseViewsResponse, error)
 	DeletePostStats(ctx context.Context, in *DeletePostStatsRequest, opts ...grpc.CallOption) (*DeletePostStatsResponse, error)
-	GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
 }
 
 type postStatsClient struct {
@@ -671,15 +529,6 @@ func (c *postStatsClient) DeletePostStats(ctx context.Context, in *DeletePostSta
 	return out, nil
 }
 
-func (c *postStatsClient) GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
-	out := new(GetTokenResponse)
-	err := c.cc.Invoke(ctx, "/poststats.PostStats/GetToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // PostStatsServer is the server API for PostStats service.
 type PostStatsServer interface {
 	GetPostStats(context.Context, *GetPostStatsRequest) (*SinglePostStats, error)
@@ -688,7 +537,6 @@ type PostStatsServer interface {
 	DislikePost(context.Context, *DislikePostRequest) (*DislikePostResponse, error)
 	IncreaseViews(context.Context, *IncreaseViewsRequest) (*IncreaseViewsResponse, error)
 	DeletePostStats(context.Context, *DeletePostStatsRequest) (*DeletePostStatsResponse, error)
-	GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
 }
 
 func RegisterPostStatsServer(s *grpc.Server, srv PostStatsServer) {
@@ -803,24 +651,6 @@ func _PostStats_DeletePostStats_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PostStats_GetToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PostStatsServer).GetToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/poststats.PostStats/GetToken",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PostStatsServer).GetToken(ctx, req.(*GetTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _PostStats_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "poststats.PostStats",
 	HandlerType: (*PostStatsServer)(nil),
@@ -849,46 +679,38 @@ var _PostStats_serviceDesc = grpc.ServiceDesc{
 			MethodName: "DeletePostStats",
 			Handler:    _PostStats_DeletePostStats_Handler,
 		},
-		{
-			MethodName: "GetToken",
-			Handler:    _PostStats_GetToken_Handler,
-		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "pkg/poststats/proto/poststats.proto",
 }
 
 func init() {
-	proto.RegisterFile("pkg/poststats/proto/poststats.proto", fileDescriptor_a47b6d2deeb112c4)
+	proto.RegisterFile("pkg/poststats/proto/poststats.proto", fileDescriptor_poststats_3c17b13bb92d7e46)
 }
 
-var fileDescriptor_a47b6d2deeb112c4 = []byte{
-	// 426 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xcd, 0x6e, 0xda, 0x40,
-	0x10, 0x80, 0x65, 0x0a, 0x2d, 0x1e, 0x5a, 0x19, 0x2d, 0x7f, 0xae, 0xdb, 0x52, 0xd7, 0xbd, 0x70,
-	0x02, 0xa9, 0x7d, 0x82, 0x08, 0x12, 0x20, 0xe2, 0x80, 0x4c, 0x12, 0xe5, 0xea, 0x90, 0x11, 0xb2,
-	0x00, 0x7b, 0xe3, 0x5d, 0x94, 0x27, 0xc8, 0xf3, 0xe4, 0x15, 0x23, 0x9b, 0xb5, 0xbd, 0x36, 0x86,
-	0x03, 0xc9, 0x71, 0x76, 0x66, 0x3e, 0xcf, 0x8e, 0xbe, 0x35, 0xfc, 0xa5, 0xeb, 0xd5, 0x80, 0xfa,
-	0x8c, 0x33, 0xee, 0x70, 0x36, 0xa0, 0x81, 0xcf, 0xfd, 0x34, 0xee, 0x47, 0x31, 0x51, 0x93, 0x03,
-	0x6b, 0x00, 0x8d, 0x31, 0xf2, 0xb9, 0xcf, 0xf8, 0x22, 0x8c, 0x6d, 0x7c, 0xda, 0x21, 0xe3, 0x44,
-	0x87, 0x2f, 0x61, 0xcd, 0xad, 0xfb, 0xa8, 0x2b, 0xa6, 0xd2, 0x53, 0xed, 0x38, 0xb4, 0x5e, 0x14,
-	0xd0, 0x16, 0xae, 0xb7, 0xda, 0x60, 0xd2, 0x74, 0xbc, 0x9a, 0x18, 0x50, 0xf5, 0x76, 0xdb, 0x99,
-	0xbb, 0x46, 0xa6, 0x97, 0x4c, 0xa5, 0x57, 0xb1, 0x93, 0x98, 0x98, 0x50, 0xf3, 0x76, 0xdb, 0x91,
-	0xcb, 0x36, 0x51, 0xfa, 0x53, 0x94, 0x96, 0x8f, 0x44, 0xf7, 0x9d, 0x8b, 0xcf, 0x4c, 0x2f, 0x27,
-	0xdd, 0x51, 0x6c, 0x4d, 0xa0, 0x3d, 0x0c, 0xd0, 0xe1, 0x78, 0x30, 0x7b, 0x13, 0x2a, 0xdc, 0x5f,
-	0xa3, 0x27, 0x66, 0xd9, 0x07, 0xf2, 0x8c, 0xa5, 0xec, 0x8d, 0x2e, 0x40, 0x0b, 0x07, 0x0a, 0x39,
-	0xe7, 0x22, 0x08, 0xd4, 0x53, 0x04, 0xa3, 0xbe, 0xc7, 0xd0, 0x1a, 0x01, 0x11, 0x17, 0x79, 0x0f,
-	0xb9, 0x05, 0x8d, 0x0c, 0x45, 0xc0, 0xaf, 0xa0, 0x39, 0xf5, 0x96, 0x01, 0x3a, 0x0c, 0xa3, 0x75,
-	0x9c, 0x8b, 0xef, 0x40, 0x2b, 0xc7, 0x11, 0x1f, 0x98, 0x40, 0x7b, 0x84, 0x1b, 0xfc, 0x80, 0xf5,
-	0x7e, 0x87, 0xce, 0x01, 0x49, 0x7c, 0xe4, 0x12, 0xb4, 0x31, 0xf2, 0x9b, 0x10, 0x20, 0xd1, 0x1d,
-	0x4a, 0xa7, 0xb1, 0x48, 0xfb, 0x80, 0xfc, 0x04, 0xd5, 0xa1, 0x74, 0x81, 0xcb, 0x00, 0xb9, 0xe0,
-	0xa7, 0x07, 0x56, 0x0f, 0xea, 0x29, 0x66, 0x8f, 0x2e, 0x9e, 0xf2, 0xdf, 0x6b, 0x19, 0xd4, 0x54,
-	0xdb, 0x6b, 0xf8, 0x2a, 0xbb, 0x4f, 0xba, 0xfd, 0xf4, 0xa1, 0x14, 0x3c, 0x0a, 0xc3, 0x90, 0xf2,
-	0xf9, 0x27, 0x30, 0x07, 0x2d, 0xa7, 0x23, 0xf9, 0x23, 0x95, 0x17, 0xab, 0x7a, 0x92, 0x38, 0x84,
-	0x6a, 0xec, 0x14, 0x91, 0xeb, 0x72, 0xae, 0x1a, 0x3f, 0x0a, 0x73, 0x62, 0x0d, 0x33, 0xa8, 0x49,
-	0xfa, 0x90, 0x5f, 0x52, 0xed, 0xa1, 0x9c, 0x46, 0xf7, 0x58, 0x5a, 0xd0, 0x6c, 0xf8, 0x96, 0xb1,
-	0x85, 0xfc, 0x96, 0x1a, 0x8a, 0x7c, 0x34, 0xcc, 0xe3, 0x05, 0x82, 0x79, 0x0f, 0x5a, 0x4e, 0x8f,
-	0xcc, 0xe2, 0x8a, 0x25, 0x34, 0xac, 0x53, 0x25, 0x82, 0x3c, 0x84, 0x6a, 0xac, 0x45, 0x66, 0x81,
-	0x39, 0xe5, 0x32, 0x0b, 0xcc, 0x7b, 0xf4, 0xf0, 0x39, 0xfa, 0x63, 0xfe, 0x7f, 0x0b, 0x00, 0x00,
-	0xff, 0xff, 0x05, 0xbc, 0x76, 0xf8, 0x58, 0x05, 0x00, 0x00,
+var fileDescriptor_poststats_3c17b13bb92d7e46 = []byte{
+	// 357 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x94, 0xd1, 0x4e, 0xf2, 0x40,
+	0x10, 0x85, 0xd3, 0x9f, 0x5f, 0x85, 0x41, 0x53, 0x33, 0x08, 0xd4, 0x35, 0x62, 0xad, 0x37, 0x24,
+	0x26, 0x60, 0xf0, 0x11, 0x20, 0x31, 0x1a, 0x2e, 0x48, 0x89, 0xc6, 0x5b, 0xd4, 0x09, 0x69, 0x80,
+	0xb6, 0xb2, 0x4b, 0x7c, 0x02, 0x5f, 0xd6, 0xa7, 0x30, 0x5d, 0x96, 0x76, 0x29, 0x2d, 0xc8, 0xe5,
+	0xe9, 0x9c, 0x73, 0xd8, 0xdd, 0x6f, 0x02, 0xdc, 0x84, 0x93, 0x71, 0x3b, 0x0c, 0xb8, 0xe0, 0x62,
+	0x24, 0x78, 0x3b, 0x9c, 0x07, 0x22, 0x48, 0x74, 0x4b, 0x6a, 0x2c, 0xc5, 0x1f, 0x9c, 0x36, 0x54,
+	0x1e, 0x48, 0x0c, 0x02, 0x2e, 0x86, 0x91, 0x76, 0xe9, 0x73, 0x41, 0x5c, 0xa0, 0x05, 0x47, 0x91,
+	0xe7, 0xd9, 0xfb, 0xb0, 0x0c, 0xdb, 0x68, 0x96, 0xdc, 0x95, 0x74, 0xbe, 0x0d, 0x30, 0x87, 0x9e,
+	0x3f, 0x9e, 0x52, 0x1c, 0xca, 0x77, 0x23, 0x83, 0xa2, 0xbf, 0x98, 0xf5, 0xbd, 0x09, 0x71, 0xeb,
+	0x9f, 0x6d, 0x34, 0x0f, 0xdc, 0x58, 0xa3, 0x0d, 0x65, 0x7f, 0x31, 0xeb, 0x79, 0x7c, 0x2a, 0xc7,
+	0x05, 0x39, 0xd6, 0x3f, 0xa9, 0xf4, 0x8b, 0x47, 0x5f, 0xdc, 0xfa, 0x1f, 0xa7, 0xa5, 0x76, 0x3a,
+	0x50, 0xeb, 0xce, 0x69, 0x24, 0x68, 0x8f, 0xb3, 0xdf, 0x82, 0x19, 0xfd, 0x74, 0x94, 0xd8, 0x6d,
+	0x46, 0x38, 0x4d, 0xcc, 0x3c, 0x0c, 0x7c, 0x4e, 0x4e, 0x0b, 0x50, 0x1d, 0xee, 0x6f, 0x1d, 0x55,
+	0xa8, 0xac, 0xf9, 0x55, 0xcd, 0x1d, 0x9c, 0x3d, 0xfa, 0xef, 0x73, 0x1a, 0x71, 0x92, 0x97, 0xd9,
+	0x5d, 0x54, 0x87, 0x6a, 0x2a, 0xa1, 0xaa, 0x3a, 0x50, 0xeb, 0xd1, 0x94, 0xf6, 0x7a, 0x86, 0x73,
+	0xa8, 0x6f, 0x64, 0x96, 0x75, 0x9d, 0x9f, 0x02, 0x94, 0x12, 0xae, 0x4f, 0x70, 0xac, 0x2f, 0x07,
+	0x36, 0x5a, 0xc9, 0x26, 0x65, 0x6c, 0x0d, 0x63, 0xda, 0x3c, 0xbd, 0x23, 0x03, 0x30, 0x53, 0xbc,
+	0xf0, 0x5a, 0xb3, 0x67, 0xb3, 0xdc, 0xda, 0xd8, 0x85, 0xe2, 0x0a, 0x10, 0xea, 0xbe, 0x14, 0x62,
+	0x76, 0x91, 0x39, 0x5b, 0x5e, 0x18, 0xfb, 0x50, 0xd6, 0x08, 0xe1, 0xa5, 0xe6, 0xdd, 0x24, 0xcd,
+	0x1a, 0x79, 0x63, 0xd5, 0xe6, 0xc2, 0xc9, 0x1a, 0x26, 0xbc, 0xd2, 0x02, 0x59, 0xc8, 0x99, 0x9d,
+	0x6f, 0x50, 0x9d, 0xaf, 0x60, 0xa6, 0x68, 0xad, 0x3d, 0x5c, 0x36, 0x7d, 0xe6, 0x6c, 0xb3, 0x2c,
+	0x9b, 0xdf, 0x0e, 0xe5, 0xbf, 0xc1, 0xfd, 0x6f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x5d, 0xbe, 0xba,
+	0x43, 0x34, 0x04, 0x00, 0x00,
 }

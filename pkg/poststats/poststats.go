@@ -2,7 +2,6 @@ package poststats
 
 import (
 	pb "github.com/andreymgn/RSOI-poststats/pkg/poststats/proto"
-	"github.com/andreymgn/RSOI/services/auth"
 	"github.com/google/uuid"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/codes"
@@ -50,15 +49,6 @@ func (s *Server) GetPostStats(ctx context.Context, req *pb.GetPostStatsRequest) 
 
 // CreatePostStats creates a new post statistics record
 func (s *Server) CreatePostStats(ctx context.Context, req *pb.CreatePostStatsRequest) (*pb.SinglePostStats, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -74,15 +64,6 @@ func (s *Server) CreatePostStats(ctx context.Context, req *pb.CreatePostStatsReq
 
 // LikePost increases number of post likes
 func (s *Server) LikePost(ctx context.Context, req *pb.LikePostRequest) (*pb.LikePostResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -101,15 +82,6 @@ func (s *Server) LikePost(ctx context.Context, req *pb.LikePostRequest) (*pb.Lik
 
 // DislikePost increases number of post dislikes
 func (s *Server) DislikePost(ctx context.Context, req *pb.DislikePostRequest) (*pb.DislikePostResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -128,15 +100,6 @@ func (s *Server) DislikePost(ctx context.Context, req *pb.DislikePostRequest) (*
 
 // IncreaseViews increases number of post views
 func (s *Server) IncreaseViews(ctx context.Context, req *pb.IncreaseViewsRequest) (*pb.IncreaseViewsResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -155,15 +118,6 @@ func (s *Server) IncreaseViews(ctx context.Context, req *pb.IncreaseViewsRequest
 
 // DeletePostStats deletes stats of a post
 func (s *Server) DeletePostStats(ctx context.Context, req *pb.DeletePostStatsRequest) (*pb.DeletePostStatsResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -175,24 +129,6 @@ func (s *Server) DeletePostStats(ctx context.Context, req *pb.DeletePostStatsReq
 		return new(pb.DeletePostStatsResponse), nil
 	case errNotFound:
 		return nil, statusNotFound
-	default:
-		return nil, internalError(err)
-	}
-}
-
-// GetToken returns new authorization token
-func (s *Server) GetToken(ctx context.Context, req *pb.GetTokenRequest) (*pb.GetTokenResponse, error) {
-	appID, appSecret := req.AppId, req.AppSecret
-	token, err := s.auth.Add(appID, appSecret)
-	switch err {
-	case nil:
-		res := new(pb.GetTokenResponse)
-		res.Token = token
-		return res, nil
-	case auth.ErrNotFound:
-		return nil, statusNotFound
-	case auth.ErrWrongSecret:
-		return nil, status.Error(codes.Unauthenticated, "wrong secret")
 	default:
 		return nil, internalError(err)
 	}

@@ -14,8 +14,10 @@ func main() {
 		return
 	}
 
+	jaegerAddr := os.Getenv("JAEGER-ADDR")
+
 	fmt.Printf("running poststats service on port %d\n", port)
-	err = runPostStats(port, conn)
+	err = runPostStats(port, conn, jaegerAddr)
 
 	if err != nil {
 		fmt.Printf("finished with error %v", err)

@@ -33,20 +33,20 @@ func (mdb *mockdb) create(uid uuid.UUID) (*PostStats, error) {
 	return nil, errDummy
 }
 
-func (mdb *mockdb) like(uid uuid.UUID) error {
-	if uid == uuid.Nil {
-		return nil
+func (mdb *mockdb) like(postUID, userUID uuid.UUID) (bool, bool, error) {
+	if postUID == uuid.Nil {
+		return true, true, nil
 	}
 
-	return errDummy
+	return false, false, errDummy
 }
 
-func (mdb *mockdb) dislike(uid uuid.UUID) error {
-	if uid == uuid.Nil {
-		return nil
+func (mdb *mockdb) dislike(postUID, userUID uuid.UUID) (bool, bool, error) {
+	if postUID == uuid.Nil {
+		return true, true, nil
 	}
 
-	return errDummy
+	return false, false, errDummy
 }
 
 func (mdb *mockdb) view(uid uuid.UUID) error {
@@ -105,7 +105,7 @@ func TestCreateFail(t *testing.T) {
 
 func TestLike(t *testing.T) {
 	s := &Server{&mockdb{}}
-	req := &pb.LikePostRequest{PostUid: nilUIDString}
+	req := &pb.LikePostRequest{PostUid: nilUIDString, UserUid: nilUIDString}
 	_, err := s.LikePost(context.Background(), req)
 	if err != nil {
 		t.Errorf("unexpected error %v", err)
@@ -124,7 +124,7 @@ func TestLikeFail(t *testing.T) {
 
 func TestDislike(t *testing.T) {
 	s := &Server{&mockdb{}}
-	req := &pb.DislikePostRequest{PostUid: nilUIDString}
+	req := &pb.DislikePostRequest{PostUid: nilUIDString, UserUid: nilUIDString}
 	_, err := s.DislikePost(context.Background(), req)
 	if err != nil {
 		t.Errorf("unexpected error %v", err)

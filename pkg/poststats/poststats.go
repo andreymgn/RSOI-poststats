@@ -64,15 +64,23 @@ func (s *Server) CreatePostStats(ctx context.Context, req *pb.CreatePostStatsReq
 
 // LikePost increases number of post likes
 func (s *Server) LikePost(ctx context.Context, req *pb.LikePostRequest) (*pb.LikePostResponse, error) {
-	uid, err := uuid.Parse(req.PostUid)
+	postUID, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
 	}
 
-	err = s.db.like(uid)
+	userUID, err := uuid.Parse(req.UserUid)
+	if err != nil {
+		return nil, statusInvalidUUID
+	}
+
+	success, firstTime, err := s.db.like(postUID, userUID)
 	switch err {
 	case nil:
-		return new(pb.LikePostResponse), nil
+		result := new(pb.LikePostResponse)
+		result.Success = success
+		result.FirstTime = firstTime
+		return result, nil
 	case errNotFound:
 		return nil, statusNotFound
 	default:
@@ -82,15 +90,23 @@ func (s *Server) LikePost(ctx context.Context, req *pb.LikePostRequest) (*pb.Lik
 
 // DislikePost increases number of post dislikes
 func (s *Server) DislikePost(ctx context.Context, req *pb.DislikePostRequest) (*pb.DislikePostResponse, error) {
-	uid, err := uuid.Parse(req.PostUid)
+	postUID, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
 	}
 
-	err = s.db.dislike(uid)
+	userUID, err := uuid.Parse(req.UserUid)
+	if err != nil {
+		return nil, statusInvalidUUID
+	}
+
+	success, firstTime, err := s.db.dislike(postUID, userUID)
 	switch err {
 	case nil:
-		return new(pb.DislikePostResponse), nil
+		result := new(pb.DislikePostResponse)
+		result.Success = success
+		result.FirstTime = firstTime
+		return result, nil
 	case errNotFound:
 		return nil, statusNotFound
 	default:

@@ -28,18 +28,22 @@ message CreatePostStatsRequest {
 
 message LikePostRequest {
     string postUid = 1;
+    string userUid = 2;
 }
 
 message LikePostResponse {
-
+    bool success = 1;
+    bool firstTime = 2;
 }
 
 message DislikePostRequest {
     string postUid = 1;
+    string userUid = 2;
 }
 
 message DislikePostResponse {
-
+    bool success = 1;
+    bool firstTime = 2;
 }
 
 message IncreaseViewsRequest {

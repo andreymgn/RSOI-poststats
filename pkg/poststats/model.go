@@ -66,6 +66,10 @@ func (db *db) create(uid uuid.UUID) (*PostStats, error) {
 	ps.NumDislikes = 0
 	ps.NumViews = 0
 	result, err := db.Exec(query, uid.String())
+	if err != nil {
+		return nil, err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return nil, err
@@ -99,6 +103,10 @@ func (db *db) updateVote(postUID, userUID uuid.UUID, vote int) (bool, bool, erro
 
 		query = "UPDATE post_votes SET vote=$1 WHERE post_uid=$2 AND user_uid=$3"
 		result, err := db.Exec(query, vote, postUID.String(), userUID.String())
+		if err != nil {
+			return false, false, err
+		}
+
 		nRows, err := result.RowsAffected()
 		if err != nil {
 			return false, false, err
@@ -112,6 +120,10 @@ func (db *db) updateVote(postUID, userUID uuid.UUID, vote int) (bool, bool, erro
 	case sql.ErrNoRows:
 		query = "INSERT INTO post_votes(post_uid, user_uid, vote) VALUES ($1, $2, $3)"
 		result, err := db.Exec(query, postUID.String(), userUID.String(), vote)
+		if err != nil {
+			return false, false, err
+		}
+
 		nRows, err := result.RowsAffected()
 		if err != nil {
 			return false, false, err
@@ -130,6 +142,10 @@ func (db *db) updateVote(postUID, userUID uuid.UUID, vote int) (bool, bool, erro
 func (db *db) view(uid uuid.UUID) error {
 	query := "UPDATE post_views SET num_views = num_views + 1 WHERE post_uid=$1"
 	result, err := db.Exec(query, uid.String())
+	if err != nil {
+		return err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return err
@@ -145,6 +161,10 @@ func (db *db) view(uid uuid.UUID) error {
 func (db *db) delete(uid uuid.UUID) error {
 	query := "DELETE FROM post_views WHERE post_uid=$1"
 	result, err := db.Exec(query, uid.String())
+	if err != nil {
+		return err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return err

@@ -7,10 +7,11 @@ import (
 
 func runPostStats(port int, connString, jaegerAddr string) error {
 	tracer, closer, err := tracer.NewTracer("poststats", jaegerAddr)
-	defer closer.Close()
 	if err != nil {
 		return err
 	}
+
+	defer closer.Close()
 
 	server, err := poststats.NewServer(connString)
 	if err != nil {
